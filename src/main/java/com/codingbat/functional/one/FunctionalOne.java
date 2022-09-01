@@ -2,6 +2,7 @@ package com.codingbat.functional.one;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import com.google.common.base.CharMatcher;
 
 public class FunctionalOne {
 
@@ -93,6 +94,9 @@ public class FunctionalOne {
      */
     public List<String> noX(List<String> strings) {
         return strings.stream().map(n -> n.replace(String.valueOf('x'), "")).collect(Collectors.toList());
+    }
+    public List<String> noX1(List<String> strings) {
+        return strings.stream().map(n -> CharMatcher.anyOf("x").removeFrom(n)).collect(Collectors.toList());
     }
 
 }
